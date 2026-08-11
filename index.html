@@ -1493,6 +1493,19 @@
                 monthlyMap[sortKey].totalPurchase += (Number(row.amount) || 0);
             });
 
+            purchaseData.forEach(row => {
+                if (selectedLocation !== 'All' && row.location !== selectedLocation) return;
+                if (!row.timestamp || row.timestamp < JUNE_2025_TIMESTAMP) return; 
+
+                const dateObj = new Date(row.timestamp);
+                const displayMonth = dateObj.toLocaleDateString('en-IN', { month: 'long', year: 'numeric' });
+                const sortKey = `${dateObj.getFullYear()}-${String(dateObj.getMonth() + 1).padStart(2, '0')}`;
+                if (!monthlyMap[sortKey]) {
+                    monthlyMap[sortKey] = { displayMonth, sortKey, cash: 0, card: 0, paytm: 0, upi: 0, totalSales: 0, totalExpense: 0, bankDeposit: 0, totalPurchase: 0 };
+                }
+                monthlyMap[sortKey].totalPurchase += (Number(row.amount) || 0);
+            });
+
             return Object.values(monthlyMap).sort((a, b) => a.sortKey.localeCompare(b.sortKey));
           }, [data, purchaseData, selectedLocation]); 
 
