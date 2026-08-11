@@ -1468,11 +1468,11 @@
 
           const monthlyReportData = useMemo(() => {
             const monthlyMap = {};
-            const JUNE_2025_TIMESTAMP = new Date(2025, 5, 1).getTime(); 
+            const NOVEMBER_2025_TIMESTAMP = new Date(2025, 10, 1).getTime(); 
 
             data.forEach(row => {
                 if (selectedLocation !== 'All' && row.location !== selectedLocation) return;
-                if (!row.timestamp || row.timestamp < JUNE_2025_TIMESTAMP) return; 
+                if (!row.timestamp || row.timestamp < NOVEMBER_2025_TIMESTAMP) return; 
                 
                 const dateObj = new Date(row.timestamp);
                 const displayMonth = dateObj.toLocaleDateString('en-IN', { month: 'long', year: 'numeric' });
