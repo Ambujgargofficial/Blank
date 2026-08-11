@@ -2880,7 +2880,7 @@
 
                     {/* View 6: Monthly Report */}
                     {activeTab === 'monthly' && (
-                      <div className="max-w-5xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-4">
+                      <div className="max-w-full mx-auto animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-4 min-w-[1500px]">
                         <div className="bg-violet-600 p-5 rounded-xl shadow-md border border-violet-700 flex items-center gap-4 text-white relative overflow-hidden">
                           <div className="bg-white/10 p-3 rounded-lg backdrop-blur-sm z-10 shrink-0">
                             <span className="text-2xl">📅</span>
@@ -2912,8 +2912,8 @@
                               <p>Is location ke liye koi data nahi mila.</p>
                             </div>
                           ) : (
-                            <div className="overflow-x-auto max-h-[600px] scrollbar-hide min-w-[1100px]">
-                              <table className="w-full text-left border-collapse min-w-[1100px] text-sm">
+                            <div className="max-h-[600px] scrollbar-hide min-w-[1500px]">
+                              <table className="w-[1500px] text-left border-collapse text-sm">
                                 <thead className="sticky top-0 bg-gray-50 z-10 shadow-sm">
                                   <tr className="border-b border-gray-200 text-gray-600">
                                     <th className="px-4 py-3 font-semibold whitespace-nowrap">Month</th>
